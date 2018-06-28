@@ -46,6 +46,10 @@ RUN curl -s https://get.sdkman.io | bash
 RUN /bin/bash -c "source /root/.sdkman/bin/sdkman-init.sh && sdk install kotlin"
 ENV PATH="/root/.sdkman/candidates/kotlin/current/bin:${PATH}"
 
+# Python
+RUN apt-get install python3-pip --assume-yes
+RUN pip3 install mypy
+
 ENV PATH="${workdir}/node_modules/.bin:${PATH}"
 
 COPY . .
